@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styled, { css } from 'styled-components'
 
 import ToDo from './components/todo/todo.js';
@@ -16,7 +14,7 @@ import ToDo from './components/todo/todo.js';
 
   Stretch Goals
 
-  X Convert all components from classes to functions
+  O Convert all components from classes to functions
 
   X In your Context, read the settings in from an object in Local Storage and use that as the initial state
     X https://www.w3schools.com/html/html5_webstorage.asp
@@ -44,12 +42,11 @@ import ToDo from './components/todo/todo.js';
       [Extend Local Storage For Easy Setting and Getting](https://stackoverflow.com/a/2010994)
 */
 
-export default class App extends React.Component
+function App()
 {
-  render()
-  {
-    return (
-      <ToDo />
-    );
-  }
+  return (
+    <ToDo/>
+  );
 }
+
+export default App;

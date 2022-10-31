@@ -3,6 +3,9 @@ import useForm from '../../hooks/form.js';
 
 import { v4 as uuid } from 'uuid';
 
+/* Components */
+import Header from '../Header/header';
+
 const ToDo = () => {
 
   const [defaultValues] = useState({
@@ -48,6 +51,7 @@ const ToDo = () => {
       <header>
         <h1>To Do List: {incomplete} items pending</h1>
       </header>
+      {/* <Header /> */}
 
       <form onSubmit={handleSubmit}>
 
