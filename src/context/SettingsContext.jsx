@@ -13,10 +13,6 @@
    X Hide or show completed items in the list
    X Optional: Sort the items based on any of the keys (i.e. difficulty)
 
-  > Pagination Notes:
 
-X Only display the first `n` items in the list, where `n` is the number to display per screen in your context.
-  X If you have more than `n` items in the list, add a button labeled `Next` that will replace the list with the next `n` items in the list.
-  X If you are past the first `n` items (i.e. on page 2 or higher), add a button labeled `Previous` that will replace the list with the previous `n` items in the list.
 
 */

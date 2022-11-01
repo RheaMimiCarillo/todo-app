@@ -5,6 +5,7 @@ import { v4 as uuid } from 'uuid';
 
 /* Components */
 import Header from '../Header/header';
+import List from '../List/list';
 
 const ToDo = () => {
 
@@ -86,7 +87,7 @@ const ToDo = () => {
           <hr />
         </div>
       ))}
-
+      <List />
     </>
   );
 };
