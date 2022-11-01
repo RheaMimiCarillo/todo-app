@@ -12,7 +12,22 @@
      X Provide "next" and "previous" links to let the users navigate a long list of items
    X Hide or show completed items in the list
    X Optional: Sort the items based on any of the keys (i.e. difficulty)
-
-
-
 */
+import { createContext, useState } from 'react';
+
+const SettingsContext = createContext();
+
+function SettingsProvider(props)
+{// props are important, so that we can send our context to children with {props.children}
+  let [ hideCompleted, setHide ] = useState(false);
+  let [ sortBy, setSortBy ] = useState('');
+  let [ pagination, setPagination ] = useState(3)
+
+  return (
+    <SettingsContext.Provider value={ { hideCompleted, sortBy, pagination } }>
+      { props.children }
+    </SettingsContext.Provider>
+  )
+}
+
+export default SettingsProvider;

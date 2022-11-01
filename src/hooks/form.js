@@ -20,7 +20,8 @@ const useForm = (callback, defaultValues={}) => {
     // event.persist() allows React to maintain values
     event.persist();
 
-    let { name, value } = event.target;
+    // in this case, this handles the difficulty slider
+    let { name, value } = event.target; // event.target is the entire input <element/>
 
     // if we can parse an integer from the `event.target.value` object
     if (parseInt(value)) {

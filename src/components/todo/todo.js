@@ -7,6 +7,11 @@ import { v4 as uuid } from 'uuid';
 import Header from '../Header/header';
 import List from '../List/list';
 
+/* Settings Context */
+import { useContext } from 'react';
+// note how this is imported with deconstruction
+import { SettingsContext } from '../../hooks/context/SettingsContext';
+
 const ToDo = () => {
 
   const [defaultValues] = useState({
@@ -46,6 +51,14 @@ const ToDo = () => {
     setIncomplete(incompleteCount);
     document.title = `To Do List: ${incomplete}`;
   }, [list]);
+
+  // look at list[] in state
+  // and look at pagination from context
+  // create a subarray(.slice()) of list items we want to display for a certain page
+  const paginate = () =>
+  {
+    // return a sub-array of the main array -> from currentIndex (in state) PLUS the value of pagination
+  }
 
   return (
     <>
@@ -87,7 +100,10 @@ const ToDo = () => {
           <hr />
         </div>
       ))}
-      <List />
+      <List
+        list={list}
+        toggleComplete={toggleComplete}
+      />
     </>
   );
 };

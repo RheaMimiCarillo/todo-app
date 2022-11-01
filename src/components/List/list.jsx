@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components';
 
+import { useContext } from 'react';
+// note how this is imported with deconstruction
+import { SettingsContext } from '../../hooks/context/SettingsContext';
+
 /* TODO
 
 > Pagination Notes:
@@ -12,10 +16,11 @@ X Only display the first `n` items in the list, where `n` is the number to displ
 
 const List = () =>
 {
+
   return (
 
     // {
-    //   list.map(item => (
+    //   props.list.map(item => (
     //     <div key={ item.id }>
     //       <p>{ item.text }</p>
     //       <p><small>Assigned to: { item.assignee }</small></p>
