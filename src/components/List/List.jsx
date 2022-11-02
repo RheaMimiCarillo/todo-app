@@ -8,6 +8,8 @@ import ListItems from './ListItems';
 import PreviousButton from '../PreviousButton/PreviousButton';
 import NextButton from '../NextButton/NextButton'
 
+import { When } from 'react-if';
+
 
 /* TODO
 
@@ -31,10 +33,12 @@ const List = (props) =>
           currentIndex={ props.currentIndex }
         />
         {/* if current index 0, don't show */ }
-        {
-          props.currentIndex === 0
-          ? undefined : <PreviousButton currentIndex={ props.currentIndex } setCurrentIndex={ props.setCurrentIndex } />
-        }
+        <When condition={ !(props.currentIndex === 0) }>
+          <PreviousButton
+            currentIndex={ props.currentIndex }
+            setCurrentIndex={ props.setCurrentIndex }
+          />
+        </When>
         {/* if current index is > list.length - pagination &&
         list.length > context.pagination
 
@@ -43,14 +47,15 @@ const List = (props) =>
         and the current index is greater than the length of the array minus pagination (array.length - pagination)
 
         */ }
-        <p>{console.log('props current index: ', props.currentIndex)}</p>
-        <p>{console.log('context pagination: ', contextValues.pagination)}</p>
-        <p>{console.log('props.list.length - contextValues.pagination: ', props.list.length - contextValues.pagination)}</p>
-        {
-          props.list.length > contextValues.pagination
-          ? <NextButton currentIndex={ props.currentIndex } setCurrentIndex={ props.setCurrentIndex } /> : undefined
-        }
-
+        <p>{ console.log('props current index: ', props.currentIndex) }</p>
+        <p>{ console.log('context pagination: ', contextValues.pagination) }</p>
+        <p>{ console.log('props.list.length - contextValues.pagination: ', props.list.length - contextValues.pagination) }</p>
+        <When condition={ props.list.length > contextValues.pagination }>
+          <NextButton
+            currentIndex={ props.currentIndex }
+            setCurrentIndex={ props.setCurrentIndex }
+          />
+        </When>
       </div>
     </>
   )
