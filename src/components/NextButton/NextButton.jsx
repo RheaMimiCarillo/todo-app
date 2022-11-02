@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Button } from "@blueprintjs/core";
-// note how this is imported with deconstruction
 import { SettingsContext } from '../../context/SettingsContext';
 
 import './NextButton.scss';
@@ -21,4 +20,3 @@ export default function PreviousButton(props)
     </>
   )
 }
-// ternary, if on last page of array, don't display

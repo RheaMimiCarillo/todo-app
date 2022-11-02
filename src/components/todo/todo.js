@@ -87,7 +87,7 @@ const ToDo = () =>
         list={ list }
         toggleComplete={ toggleComplete }
         currentIndex={ currentIndex }
-        setCurrentIndex= {setCurrentIndex}
+        setCurrentIndex={ setCurrentIndex }
       />
     </>
   );
