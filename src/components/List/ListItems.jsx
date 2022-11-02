@@ -16,7 +16,6 @@ X Only display the first `n` items in the list, where `n` is the number to displ
 
 const List = (props) =>
 {
-
   return (
     <>
       {
@@ -30,10 +29,6 @@ const List = (props) =>
           </div>
         ))
       }
-
-      <div className='listItems'>Hi from ListItems!
-        <p>{ console.log(props) }</p>
-      </div>
     </>
   )
 }

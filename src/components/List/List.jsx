@@ -21,7 +21,6 @@ const List = (props) =>
   return (
     <>
       <div className='list'>Hi from List!
-        <p>props in List{ console.log(props) }</p>
         <ListItems
           list={ props.list }
           toggleComplete={ props.toggleComplete }
