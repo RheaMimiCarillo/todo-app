@@ -19,12 +19,16 @@ const Header = (props) =>
     <header>
       <Navbar className='rule'>
         <NavbarGroup align={ Alignment.LEFT }>
-          <Button className={ Classes.MINIMAL } icon="home" text="Home" />
+          <Button
+            className={ Classes.MINIMAL }
+            icon="home"
+            onClick={() => window.location.reload()}
+          />
           <NavbarDivider />
           <NavbarHeading>To Do List</NavbarHeading>
           <NavbarDivider />
           <When condition={ props.incomplete }>
-            <NavbarHeading>
+            <NavbarHeading id='incomplete'>
               { props.incomplete } items pending
             </NavbarHeading>
           </When>

@@ -7,6 +7,8 @@ import { SettingsContext } from '../../context/SettingsContext';
 import Header from '../Header/header';
 import List from '../List/List';
 
+import './Todo.scss';
+
 const ToDo = () =>
 {
   const [ defaultValues ] = useState({
