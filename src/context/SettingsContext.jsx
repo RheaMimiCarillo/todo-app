@@ -13,18 +13,40 @@
    X Hide or show completed items in the list
    X Optional: Sort the items based on any of the keys (i.e. difficulty)
 */
-import { createContext, useState } from 'react';
+import { useState, createContext, useEffect } from 'react';
 
-const SettingsContext = createContext();
+export const SettingsContext = createContext();
 
 function SettingsProvider(props)
 {// props are important, so that we can send our context to children with {props.children}
-  let [ hideCompleted, setHide ] = useState(false);
+  let [ pagination, setPagination ] = useState(3);
   let [ sortBy, setSortBy ] = useState('');
-  let [ pagination, setPagination ] = useState(3)
+  let [ showCompleted, setHide ] = useState(false);
+  let [ error, setError ] = useState(null);
+
+  const updatePagination = (value) =>
+  {
+    if (parseInt(value))
+    { // we know that value is an integer if truthy
+      setPagination(value);
+      setError(null);
+      localStorage.setItem('settings', JSON.stringify({ pagination, sort, display }));
+    } else
+    {
+      // alert('Please set pagination to a number');
+      setError('Please set pagination to a number');
+    }
+  }
+
+  // when component mounts, load our settings from localStorage
+  useEffect(() =>
+  {
+    let savedSettings = localStorage.getItem('settings');
+    // set them back into context values.
+  }, []);
 
   return (
-    <SettingsContext.Provider value={ { hideCompleted, sortBy, pagination } }>
+    <SettingsContext.Provider value={ { pagination, showCompleted, sortBy, updatePagination, settingsError: error, setError } }>
       { props.children }
     </SettingsContext.Provider>
   )

@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 // this component accepts 2 parameters:
 // 1. a callback function
 // 2. the default state/data
-//
 const useForm = (callback, defaultValues={}) => {
 
   // declare `values` state as `{}`, as well as a setter
@@ -23,7 +22,7 @@ const useForm = (callback, defaultValues={}) => {
     // in this case, this handles the difficulty slider
     let { name, value } = event.target; // event.target is the entire input <element/>
 
-    // if we can parse an integer from the `event.target.value` object
+    // if we can parse an integer from the `event.target.value` object and it's truthy
     if (parseInt(value)) {
       // assign the parsed value integer to `value`
       value = parseInt(value);

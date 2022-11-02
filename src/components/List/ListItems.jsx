@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 // note how this is imported with deconstruction
 import { SettingsContext } from '../../context/SettingsContext';
 
@@ -16,10 +16,22 @@ X Only display the first `n` items in the list, where `n` is the number to displ
 
 const List = (props) =>
 {
+  const contextValues = useContext(SettingsContext);
+
+  // look at list[] in state
+  // and look at pagination from context
+  // create a subarray(.slice()) of list items we want to display for a certain page
+  const paginate = () => {
+    // list -> total items to display
+
+    // return a sub-array of the main array -> from currentIndex (in state) PLUS the value of pagination(from context)
+    return props.list.slice(props.currentIndex, props.currentIndex + contextValues.pagination);
+  }
+
   return (
     <>
       {
-        props.list.map(item => (
+        paginate().map(item => (
           <div key={ item.id }>
             <p>{ item.text }</p>
             <p><small>Assigned to: { item.assignee }</small></p>
