@@ -26,7 +26,7 @@ const List = (props) =>
   const contextValues = useContext(SettingsContext);
   return (
     <>
-      <div className='list'>Hi from List!
+      <div className='list'>
         <ListItems
           list={ props.list }
           toggleComplete={ props.toggleComplete }

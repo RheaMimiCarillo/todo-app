@@ -29,7 +29,7 @@ const Header = (props) =>
           <NavbarDivider />
           <When condition={ props.incomplete }>
             <NavbarHeading id='incomplete'>
-              { props.incomplete } items pending
+              { props.incomplete } {props.incomplete>1?'items':'item'} pending
             </NavbarHeading>
           </When>
         </NavbarGroup>
