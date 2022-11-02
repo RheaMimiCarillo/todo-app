@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
+import { Button } from "@blueprintjs/core";
 // note how this is imported with deconstruction
 import { SettingsContext } from '../../context/SettingsContext';
+
+import './PreviousButton.scss';
 
 
 export default function PreviousButton(props)
@@ -11,7 +14,14 @@ export default function PreviousButton(props)
     props.setCurrentIndex(props.currentIndex - contextValues.pagination);
   }
 
-  return (<button onClick={ previous }>Previous</button>)
+  return (
+    <>
+      <Button
+        icon="arrow-left"
+        onClick={ previous }
+      />
+    </>
+  )
 }
 // ternary, if on first page of array, don't display
-{}
+{ }

@@ -1,11 +1,30 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
+import
+{
+  Alignment,
+  Button,
+  Classes,
+  Navbar,
+  NavbarDivider,
+  NavbarGroup,
+  NavbarHeading,
+
+} from "@blueprintjs/core";
+import './Header.scss';
 
 const Header = (props) =>
 {
   return (
     <header>
-      <h1>To Do List: { props.incomplete } items pending</h1>
-      {/* <h1>To Do List: 'will put global state here `incomplete`' items pending</h1> */}
+      <Navbar className='rule'>
+        <NavbarGroup align={ Alignment.LEFT }>
+          <Button className={ Classes.MINIMAL } icon="home" text="Home" />
+          <NavbarDivider />
+          <NavbarHeading>To Do List</NavbarHeading>
+          <NavbarDivider />
+          <NavbarHeading>{ props.incomplete } items pending</NavbarHeading>
+        </NavbarGroup>
+      </Navbar>
     </header>
   )
 }
