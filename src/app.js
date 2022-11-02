@@ -4,13 +4,13 @@ import React from 'react';
 import ToDo from './components/todo/todo.js';
 
 // this is a default import, without deconstruction
-import SettingsProvider from './hooks/context/SettingsContext';
+import SettingsProvider from './context/SettingsContext';
 
 /* TODO
   X Style the application using the [Blueprint Component API](https://blueprintjs.com/docs/#blueprint){target:_blank}
 
   X Properly modularize the application into separate components
-    X Make the component files
+    O Make the component files
     X Refactor code to make code run from component files
 
   X Implement the Context API to make some basic application settings available to components

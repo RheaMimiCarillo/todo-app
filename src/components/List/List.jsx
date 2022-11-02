@@ -2,7 +2,9 @@ import styled, { css } from 'styled-components';
 
 import { useContext } from 'react';
 // note how this is imported with deconstruction
-import { SettingsContext } from '../../hooks/context/SettingsContext';
+import { SettingsContext } from '../../context/SettingsContext';
+
+import ListItems from './ListItems';
 
 /* TODO
 
@@ -14,23 +16,18 @@ X Only display the first `n` items in the list, where `n` is the number to displ
 
 */
 
-const List = () =>
+const List = (props) =>
 {
-
   return (
-
-    // {
-    //   props.list.map(item => (
-    //     <div key={ item.id }>
-    //       <p>{ item.text }</p>
-    //       <p><small>Assigned to: { item.assignee }</small></p>
-    //       <p><small>Difficulty: { item.difficulty }</small></p>
-    //       <div onClick={ () => toggleComplete(item.id) }>Complete: { item.complete.toString() }</div>
-    //       <hr />
-    //     </div>
-    //   ))
-    // }
-    <div className='listItems'>Hi from List!</div>
+    <>
+      <div className='list'>Hi from List!
+        <p>props in List{ console.log(props) }</p>
+        <ListItems
+          list={ props.list }
+          toggleComplete={ props.toggleComplete }
+        />
+      </div>
+    </>
   )
 }
 export default List;

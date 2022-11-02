@@ -5,12 +5,12 @@ import { v4 as uuid } from 'uuid';
 
 /* Components */
 import Header from '../Header/header';
-import List from '../List/list';
+import List from '../List/List';
 
 /* Settings Context */
 import { useContext } from 'react';
 // note how this is imported with deconstruction
-import { SettingsContext } from '../../hooks/context/SettingsContext';
+import { SettingsContext } from '../../context/SettingsContext';
 
 const ToDo = () => {
 
@@ -62,10 +62,7 @@ const ToDo = () => {
 
   return (
     <>
-      <header>
-        <h1>To Do List: {incomplete} items pending</h1>
-      </header>
-      <Header />
+      <Header incomplete={incomplete}/>
 
       <form onSubmit={handleSubmit}>
 
