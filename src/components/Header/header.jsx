@@ -16,7 +16,7 @@ import './Header.scss';
 const Header = (props) =>
 {
   return (
-    <header>
+    <header data-testid="header">
       <Navbar className='rule'>
         <NavbarGroup align={ Alignment.LEFT }>
           <Button
@@ -29,7 +29,7 @@ const Header = (props) =>
           <NavbarDivider />
           <When condition={ props.incomplete }>
             <NavbarHeading id='incomplete'>
-              { props.incomplete } items pending
+              { props.incomplete } {props.incomplete>1?'items':'item'} pending
             </NavbarHeading>
           </When>
         </NavbarGroup>
