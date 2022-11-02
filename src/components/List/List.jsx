@@ -26,7 +26,7 @@ const List = (props) =>
   const contextValues = useContext(SettingsContext);
   return (
     <>
-      <div className='list'>
+      <div className='list' data-testid="list">
         <ListItems
           list={ props.list }
           toggleComplete={ props.toggleComplete }
@@ -39,9 +39,9 @@ const List = (props) =>
             setCurrentIndex={ props.setCurrentIndex }
           />
         </When>
-        {/* TODO: in between previous and next button, show buttons for each "page" of items, so a user can click to jump to a numbered page */}
+        {/* TODO: in between previous and next button, show buttons for each "page" of items, so a user can click to jump to a numbered page */ }
         {/* if # of items in list is more than pagination threshold AND not at the end of the list */ }
-        <When condition={ props.list.length > contextValues.pagination && props.currentIndex < (props.list.length-contextValues.pagination)}>
+        <When condition={ props.list.length > contextValues.pagination && props.currentIndex < (props.list.length - contextValues.pagination) }>
           <NextButton
             currentIndex={ props.currentIndex }
             setCurrentIndex={ props.setCurrentIndex }

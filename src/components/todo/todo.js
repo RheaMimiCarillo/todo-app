@@ -25,7 +25,7 @@ const ToDo = () =>
   {
     item.id = uuid();
     item.complete = false;
-    console.log('add item: ', item);
+    //console.log('add item: ', item);
     setList([ ...list, item ]);
   }
 
@@ -65,21 +65,40 @@ const ToDo = () =>
 
         <label>
           <span>To Do Item</span>
-          <input onChange={ handleChange } name="text" type="text" placeholder="Item Details" />
+          <input
+            onChange={ handleChange }
+            name="text"
+            type="text"
+            placeholder="Item Details"
+            data-testid="itemName"
+          />
         </label>
 
         <label>
           <span>Assigned To</span>
-          <input onChange={ handleChange } name="assignee" type="text" placeholder="Assignee Name" />
+          <input
+            onChange={ handleChange }
+            name="assignee"
+            type="text"
+            placeholder="Assignee Name"
+            data-testid="assignee"
+          />
         </label>
 
         <label>
           <span>Difficulty</span>
-          <input onChange={ handleChange } defaultValue={ defaultValues.difficulty } type="range" min={ 1 } max={ 5 } name="difficulty" />
+          <input
+            onChange={ handleChange }
+            defaultValue={ defaultValues.difficulty }
+            type="range"
+            min={ 1 }
+            max={ 5 }
+            name="difficulty"
+          />
         </label>
 
         <label>
-          <button type="submit">Add Item</button>
+          <button type="submit" data-testid="addItemButton">Add Item</button>
         </label>
       </form>
 

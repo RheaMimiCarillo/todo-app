@@ -21,7 +21,9 @@ const List = (props) =>
             <p>{ item.text }</p>
             <p><small>Assigned to: { item.assignee }</small></p>
             <p><small>Difficulty: { item.difficulty }</small></p>
-            <div onClick={ () => props.toggleComplete(item.id) }>Complete: { item.complete.toString() }</div>
+            <div onClick={ () => props.toggleComplete(item.id) }>
+              Complete: { item.complete.toString() }
+            </div>
             <hr />
           </div>
         ))

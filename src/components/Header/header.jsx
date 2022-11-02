@@ -16,7 +16,7 @@ import './Header.scss';
 const Header = (props) =>
 {
   return (
-    <header>
+    <header data-testid="header">
       <Navbar className='rule'>
         <NavbarGroup align={ Alignment.LEFT }>
           <Button
