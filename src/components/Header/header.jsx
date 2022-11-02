@@ -10,6 +10,7 @@ import
   NavbarHeading,
 
 } from "@blueprintjs/core";
+import { When } from 'react-if';
 import './Header.scss';
 
 const Header = (props) =>
@@ -22,7 +23,11 @@ const Header = (props) =>
           <NavbarDivider />
           <NavbarHeading>To Do List</NavbarHeading>
           <NavbarDivider />
-          <NavbarHeading>{ props.incomplete } items pending</NavbarHeading>
+          <When condition={ props.incomplete }>
+            <NavbarHeading>
+              { props.incomplete } items pending
+            </NavbarHeading>
+          </When>
         </NavbarGroup>
       </Navbar>
     </header>
