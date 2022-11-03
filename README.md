@@ -1,24 +1,25 @@
 # LAB - Todo-App - Context API
 
+Todo List app with RBAC and Auth
+
 [Live Todo-App](https://rhea-todo-app.netlify.app/)
 
-**To Do List Manager Phase 1:** Incorporate configuration settings to the application
 
-In this phase, we'll be adding some top-level settings for the application, so that the user can make some display choices that the app will use by default.
-
-![Example Page](./images/todo.png "Example Page")
 
 ## Testing
 
-- Tests should assert all behavioral functionality
-- Do a deep mount of the app, and set tests to make assertions on the child components that consume context from the Provider.
-  - Can they see context?
+My test suite covers the following test cases:
+
+1. Adding and rendering list items
+2. Updating the header's count of incomplete items
+3. Rendering the page with context settings
+4. Saving and loading context settings with local storage
 
 ## Documentation
 
 ### Global State
 
-- Global state is consumed by components that use user input to dynamically change layout and functionality, such as how many TODOs to display at a time.
+- Global state is consumed by components that use user input to dynamically change layout and functionality, such as how many TODO list items to display at a time.
 
 ### `useForm()`
 
@@ -26,6 +27,14 @@ In this phase, we'll be adding some top-level settings for the application, so t
   - when creating an instance of `useForm()`, we pass in an external callback and some default values
   - onChange => `useForm()` appends event values to `useForm()`'s own internal state
   - onSubmit => send `values` in internal state to an external callback and run the callback
+
+### UML
+
+**Settings Context**
+![Context](./images/context.png "Context")
+
+**Auth**
+![Auth](./images/auth.png "Auth")
 
 ## References
 

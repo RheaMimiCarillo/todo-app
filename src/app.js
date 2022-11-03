@@ -7,20 +7,17 @@ import ToDo from './components/todo/todo.js';
 import SettingsProvider from './context/SettingsContext';
 
 /* TODO
-  X Style the application using the [Blueprint Component API](https://blueprintjs.com/docs/#blueprint){target:_blank}
-
-  X Properly modularize the application into separate components
-    O Make the component files
-    X Refactor code to make code run from component files
 
   X Implement the Context API to make some basic application settings available to components
     X How many To Do Items to show at once
     X Whether or not to show completed items
 
+  X Provide the users with a form where they can change the values for those settings
+    X This should be given in the form of a new component, perhaps linked to from the main navigation
+    - Hint: Use Browser Router to create the page/route/component for this
 
-  Stretch Goals
-
-  O Convert all components from classes to functions
+  X Save the users choices in Local Storage
+    X Retrieve their preferences from Local Storage and apply them to the application on startup
 
   X In your Context, read the settings in from an object in Local Storage and use that as the initial state
     X https://www.w3schools.com/html/html5_webstorage.asp

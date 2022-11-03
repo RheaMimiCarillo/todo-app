@@ -2,7 +2,17 @@ import styled, { css } from 'styled-components';
 import React, { useContext } from 'react';
 import { SettingsContext } from '../../context/SettingsContext';
 
-const List = (props) =>
+/* TODO
+
+Pagination Notes:
+
+O Only display the first n items in the list, where n is the number to display per screen in your context.
+  O If you have more than n items in the list, add a button labeled Next that will replace the list with the next n items in the list.
+  O If you are past the first n items (i.e. on page 2 or higher), add a button labeled Previous that will replace the list with the previous n items in the list.
+
+*/
+
+const ListItems = (props) =>
 {
   const contextValues = useContext(SettingsContext);
 
@@ -31,4 +41,4 @@ const List = (props) =>
     </>
   )
 }
-export default List;
+export default ListItems;

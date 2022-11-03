@@ -1,16 +1,41 @@
 /* TODO
 
-  O Implement the React `context` API for defining `settings` across the entire application.
-    O Create a `context` for managing application display settings and provide this at the application level.
-    O Display or Hide completed items (boolean).
-    O Number of items to display per screen (number).
-    O Default sort field (string).
-    O Manually set (hard code) those state settings in the context provider's state, they should not be changeable.
+  X Save the users choices in Local Storage
+    X Retrieve their preferences from Local Storage and apply them to the application on startup
 
-  O Consume and utilize `context` values throughout your components
-   O Show a maximum of a certain number of items per screen in the `<List />` component
-     O Provide "next" and "previous" links to let the users navigate a long list of items
-   O Hide or show completed items in the list
+  X Extend your context provider to include all of the following features:
+      O Create a context for managing application settings and provide this at the application level.
+      O Display or Hide completed items (boolean).
+      O Number of items to display per screen (number).
+      O Default sort field (string).
+      O Create a function in your context that saves user preferences (for the above) to local storage.
+      X Implement a useEffect() (or componentDidMount()) in your context to read from local storage and set the values for those 2 state properties on application load.
+        - Note: You will need to stringify your state prior to saving to local storage, and parse it when you retrieve it.
+
+  X In your Context, read the settings in from an object in Local Storage and use that as the initial state
+    X https://www.w3schools.com/html/html5_webstorage.asp
+    X Before using web storage, check browser support for localStorage and sessionStorage:
+      ```
+      if (typeof(Storage) !== "undefined") {
+        // Code for localStorage/sessionStorage.
+      } else {
+        // Sorry! No Web Storage support..
+      }
+      ```
+      The localStorage object stores the data with no expiration date. The data will not be deleted when the browser is closed, and will be available the next day, week, or year.
+
+      Example
+      ```
+      // Store
+      localStorage.setItem("lastname", "Smith");
+
+      // Retrieve
+      document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+      ```
+      Local Storage JSON refresher:
+        https://stackoverflow.com/a/2010948
+
+      [Extend Local Storage For Easy Setting and Getting](https://stackoverflow.com/a/2010994)
 */
 import { useState, createContext, useEffect } from 'react';
 
