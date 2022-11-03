@@ -46,8 +46,8 @@ import SettingsProvider from './context/SettingsContext';
 
       [Extend Local Storage For Easy Setting and Getting](https://stackoverflow.com/a/2010994)
 
-  X Stretch goal:
-    X implement a `snack bar` alert whenever a new item is added to the todo list.
+  O Personal Stretch goal:
+    O implement a `snack bar` alert whenever a new item is added to the todo list.
       - reference: https://medium.com/swlh/snackbars-in-react-an-exercise-in-hooks-and-context-299b43fd2a2b
 */
 

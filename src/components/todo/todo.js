@@ -7,6 +7,7 @@ import { SettingsContext } from '../../context/SettingsContext';
 import Header from '../Header/header';
 import List from '../List/List';
 import SnackBar from '../SnackBar/SnackBar.jsx';
+import SettingsPage from '../SettingsPage/SettingsPage.jsx';
 
 import './Todo.scss';
 
@@ -70,6 +71,7 @@ const ToDo = () =>
         timeout={5000}
         list={list}
       />
+      {/* <SettingsPage/> */}
       <Header incomplete={ incomplete } />
 
       <form onSubmit={ handleSubmit }>

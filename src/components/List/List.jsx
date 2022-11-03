@@ -13,10 +13,10 @@ import { When } from 'react-if';
 
 /* TODO
 
-X Consume and utilize Context values throughout your components:
+O Consume and utilize Context values throughout your components:
 Show a maximum of a certain number of items per screen in the <List /> component.
-  X Provide “next” and “previous” links to let the users navigate a long list of items.
-  X Hide or show completed items in the list.
+  O Provide “next” and “previous” links to let the users navigate a long list of items.
+  O Hide or show completed items in the list.
     X Optional: Sort the items based on any of the keys (i.e. difficulty).
 
 */
@@ -39,9 +39,9 @@ const List = (props) =>
             setCurrentIndex={ props.setCurrentIndex }
           />
         </When>
-        {/* TODO: in between previous and next button, show buttons for each "page" of items, so a user can click to jump to a numbered page */ }
         {/* if # of items in list is more than pagination threshold AND not at the end of the list */ }
-        <When condition={ props.list.length > contextValues.pagination && props.currentIndex < (props.list.length - contextValues.pagination) }>
+        <When
+          condition={ props.list.length > contextValues.pagination && props.currentIndex < (props.list.length - contextValues.pagination) }>
           <NextButton
             currentIndex={ props.currentIndex }
             setCurrentIndex={ props.setCurrentIndex }

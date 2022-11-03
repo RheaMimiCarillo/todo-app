@@ -63,7 +63,6 @@ function SettingsProvider(props)
     }
   }
 
-
   // when component mounts, load our settings from localStorage
   useEffect(() =>
   {
