@@ -6,6 +6,7 @@ import { SettingsContext } from '../../context/SettingsContext';
 /* Components */
 import Header from '../Header/header';
 import List from '../List/List';
+import SnackBar from '../SnackBar/SnackBar.jsx';
 
 import './Todo.scss';
 
@@ -57,6 +58,12 @@ const ToDo = () =>
 
   return (
     <>
+      <SnackBar
+        message={'sup'}
+        isCloseButtonShown={true}
+        timeout={5000}
+        list={list}
+      />
       <Header incomplete={ incomplete } />
 
       <form onSubmit={ handleSubmit }>

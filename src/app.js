@@ -8,9 +8,9 @@ import SettingsProvider from './context/SettingsContext';
 
 /* TODO
 
-  X Implement the Context API to make some basic application settings available to components
-    X How many To Do Items to show at once
-    X Whether or not to show completed items
+  O Implement the Context API to make some basic application settings available to components
+    O How many To Do Items to show at once
+    O Whether or not to show completed items
 
   X Provide the users with a form where they can change the values for those settings
     X This should be given in the form of a new component, perhaps linked to from the main navigation
@@ -43,6 +43,10 @@ import SettingsProvider from './context/SettingsContext';
         https://stackoverflow.com/a/2010948
 
       [Extend Local Storage For Easy Setting and Getting](https://stackoverflow.com/a/2010994)
+
+  X Stretch goal:
+    X implement a `snack bar` alert whenever a new item is added to the todo list.
+      - reference: https://medium.com/swlh/snackbars-in-react-an-exercise-in-hooks-and-context-299b43fd2a2b
 */
 
 function App()
