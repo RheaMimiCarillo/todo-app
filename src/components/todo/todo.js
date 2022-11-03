@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useRef } from 'react';
 import useForm from '../../hooks/form.js';
 import { v4 as uuid } from 'uuid';
 /* Settings Context (note how this is imported with deconstruction) */
@@ -6,6 +6,7 @@ import { SettingsContext } from '../../context/SettingsContext';
 /* Components */
 import Header from '../Header/header';
 import List from '../List/List';
+import SnackBar from '../SnackBar/SnackBar.jsx';
 
 import './Todo.scss';
 
@@ -21,11 +22,17 @@ const ToDo = () =>
   const contextValues = useContext(SettingsContext);
   const [ getInput, setGetInput ] = useState(contextValues.pagination);
 
+  // useRef to clear input box onSubmit
+  const taskNameRef = useRef(null);
+  const assigneeRef = useRef(null);
+
   function addItem(item)
   {
     item.id = uuid();
     item.complete = false;
     //console.log('add item: ', item);
+    taskNameRef.current.value = '';
+    assigneeRef.current.value = '';
     setList([ ...list, item ]);
   }
 
@@ -57,6 +64,12 @@ const ToDo = () =>
 
   return (
     <>
+      <SnackBar
+        message={'sup'}
+        isCloseButtonShown={true}
+        timeout={5000}
+        list={list}
+      />
       <Header incomplete={ incomplete } />
 
       <form onSubmit={ handleSubmit }>
@@ -70,6 +83,7 @@ const ToDo = () =>
             name="text"
             type="text"
             placeholder="Item Details"
+            ref={taskNameRef}
             data-testid="itemName"
           />
         </label>
@@ -81,6 +95,7 @@ const ToDo = () =>
             name="assignee"
             type="text"
             placeholder="Assignee Name"
+            ref={assigneeRef}
             data-testid="assignee"
           />
         </label>

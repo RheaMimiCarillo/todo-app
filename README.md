@@ -44,3 +44,5 @@ My test suite covers the following test cases:
 4. [Local Storage](https://www.w3schools.com/html/html5_webstorage.asp)
 5. [Local Storage JSON Refresher](https://stackoverflow.com/a/2010948)
 6. [Extend Local Storage For Easy Setting and Getting](https://stackoverflow.com/a/2010994)
+7. [Snack Bars wtih Context](https://medium.com/swlh/snackbars-in-react-an-exercise-in-hooks-and-context-299b43fd2a2b)
+8. [Clear Input values after form submit in React](https://bobbyhadz.com/blog/react-clear-input-after-submit#:~:text=To%20clear%20input%20values%20after,state%20variables%20to%20empty%20strings.)
