@@ -3,9 +3,9 @@ import App from '../app';
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 
-describe('Testing the list component', () =>
+describe('Testing the settings context component', () =>
 {
-  test('Should display Items', async () =>
+  test('Should display paginated list with only 3 items', async () =>
   {
     render(
       <App />
