@@ -22,6 +22,10 @@ import
 } from "@blueprintjs/core";
 import { useState } from 'react';
 
+import { useContext } from 'react';
+// note how this is imported with deconstruction
+import { SettingsContext } from '../../context/SettingsContext';
+
 /* TODO
 X Provide the users with a form where they can change the values for those settings
     X This should be given in the form of a new component, perhaps linked to from the main navigation
@@ -33,6 +37,7 @@ X Provide the users with a form where they can change the values for those setti
 
 function SettingsPage(props)
 {
+  const contextValues = useContext(SettingsContext);
   const handleClose = () => props.setIsOpen(false);
 
   return (
@@ -49,14 +54,23 @@ function SettingsPage(props)
           <FormGroup
             helperText={ "Helper text with details..." }
           >
-            <Switch label="Show Completed Tasks" disabled={ false } />
-            <Switch label="Win the Lottery" disabled={ true } />
+            <Switch label="Hide Completed Tasks?" disabled={ false } />
+
+            <HTMLSelect>
+              <option selected>Tasks Per Page...</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+              <option value="4">Four</option>
+              <option value="4">Four</option>
+            </HTMLSelect>
           </FormGroup>
 
         </div>
         <div className={ Classes.DRAWER_FOOTER }>
+          <Switch label="Win the Lottery?" disabled={ true } />
           <Button
-            onClick={()=>console.log('settings form submitted; go update context')}
+            onClick={ () => console.log('settings form submitted; go update context') }
           >
             Save Settings
           </Button>
