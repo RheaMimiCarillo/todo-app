@@ -10,6 +10,8 @@ import NextButton from '../NextButton/NextButton'
 
 import { When } from 'react-if';
 
+//import './List.scss';
+
 
 /* TODO
 

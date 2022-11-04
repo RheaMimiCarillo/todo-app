@@ -1,5 +1,26 @@
 import './SettingsPage.scss';
-import { FormGroup, InputGroup, Intent, Switch } from "@blueprintjs/core";
+import '@blueprintjs/core/lib/css/blueprint.css';
+import
+{
+  FormGroup,
+  InputGroup,
+  Intent,
+  Switch,
+  Button,
+  Classes,
+  Divider,
+  Drawer,
+  Elevation,
+  DrawerSize,
+  HTMLSelect,
+  Label,
+  Menu,
+  MenuItem,
+  OptionProps,
+  Position,
+  Overlay,
+} from "@blueprintjs/core";
+import { useState } from 'react';
 
 /* TODO
 X Provide the users with a form where they can change the values for those settings
@@ -12,29 +33,35 @@ X Provide the users with a form where they can change the values for those setti
 
 function SettingsPage(props)
 {
+  const handleClose = () => props.setIsOpen(false);
+
   return (
     <>
-      <FormGroup
-        disabled={ false }
-        helperText={  "Helper text with details..." }
-        inline={ false }
-        label={ "Label" }
-        labelFor="text-input"
-        labelInfo={  true && "(required)" }
-        subLabel={ true && "Label helper text with details..." }
+      <Drawer
+        isOpen={ props.isOpen }
+        onClose={ handleClose }
+        icon="info-sign"
+        title="Settings"
+        className={ `Classes.MINIMAL bp4-dark ${ props.isOpen ? 'drawerOpen' : 'drawerClosed' }` }
+        elevation={ Elevation.ONE }
       >
-        <InputGroup id="text-input" placeholder="Placeholder text" disabled={ false } />
-      </FormGroup>
-      <FormGroup
-        disabled={ false }
-        helperText={  "Helper text with details..." }
-        inline={ true }
-        label={  "Label" }
-        labelInfo={  "(required)" }
-      >
-        <Switch label="Engage the hyperdrive" disabled={ false } />
-        <Switch label="Initiate thrusters" disabled={ false } />
-      </FormGroup>
+        <div className={ Classes.DRAWER_BODY }>
+          <FormGroup
+            helperText={ "Helper text with details..." }
+          >
+            <Switch label="Show Completed Tasks" disabled={ false } />
+            <Switch label="Win the Lottery" disabled={ true } />
+          </FormGroup>
+
+        </div>
+        <div className={ Classes.DRAWER_FOOTER }>
+          <Button
+            onClick={()=>console.log('settings form submitted; go update context')}
+          >
+            Save Settings
+          </Button>
+        </div>
+      </Drawer>
     </>
   )
 

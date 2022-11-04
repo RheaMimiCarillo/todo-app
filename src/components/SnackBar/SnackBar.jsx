@@ -10,7 +10,7 @@ import React, { useState, useEffect } from 'react';
 
 /** Singleton toaster instance. Create separate instances for different options. */
 export const AppToaster = Toaster.create({
-  className: "recipe-toaster",
+  className: "toast",
   position: Position.BOTTOM,
 });
 
@@ -25,7 +25,7 @@ function AppToasterProvider(props)
   {
     // create toasts in response to interactions.
     // in most cases, it's enough to simply create and forget (thanks to timeout).
-    console.log(props.list)
+
     Boolean(props.list.length) && AppToaster.show({
       message: `Added: ${props.list[props.list.length-1].text} for ${props.list[props.list.length-1].assignee}`
     });
