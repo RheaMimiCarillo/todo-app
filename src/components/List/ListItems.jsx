@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import React, { useContext } from 'react';
 import { SettingsContext } from '../../context/SettingsContext';
+import { Card, Button, Classes, Elevation } from '@blueprintjs/core';
+import { When } from 'react-if';
+import './List.scss'
 
 /* TODO
 
@@ -16,7 +19,8 @@ const ListItems = (props) =>
 {
   const contextValues = useContext(SettingsContext);
 
-  const paginate = () => {
+  const paginate = () =>
+  {
     // list -> total items to display
 
     // return a sub-array of the main array -> from currentIndex (in state) PLUS the value of pagination(from context)
@@ -25,17 +29,34 @@ const ListItems = (props) =>
 
   return (
     <>
+      <When condition={ !props.list.length }>
+        <Card
+          interactive={ false }
+          elevation={ Elevation.TWO }
+          className={ `bp4-dark ` }
+        >
+          <h5 className='bp4-skeleton'>Homework</h5>
+          <p className='bp4-skeleton'>Felix</p>
+          <p className='bp4-skeleton'>Difficulty: 4</p>
+          <Button className='bp4-skeleton'>Completed</Button>
+        </Card>
+      </When>
       {
         paginate().map(item => (
-          <div key={ item.id }>
-            <p>{ item.text }</p>
-            <p><small>Assigned to: { item.assignee }</small></p>
-            <p><small>Difficulty: { item.difficulty }</small></p>
-            <div onClick={ () => props.toggleComplete(item.id) }>
+          <Card
+            key={ item.id }
+            interactive={ true }
+            elevation={ Elevation.TWO }
+            className={ `bp4-dark ` }
+          >
+            <h5>{ item.text }</h5>
+            <p>Assigned to: { item.assignee }</p>
+            <p>Difficulty: { item.difficulty }</p>
+            <Button onClick={ () => props.toggleComplete(item.id) }>
               Complete: { item.complete.toString() }
-            </div>
+            </Button>
             <hr />
-          </div>
+          </Card>
         ))
       }
     </>
