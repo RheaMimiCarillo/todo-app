@@ -1,5 +1,8 @@
 import styled, { css } from 'styled-components'
-import React from 'react';
+import './app.scss';
+import AuthProvider from './context/Auth/auth.js';
+import Login from './context/Auth/Login.jsx';
+import IsAuthorized from './context/Auth/IsAuthorized.jsx';
 
 import ToDo from './components/todo/todo.js';
 
@@ -44,8 +47,8 @@ import SettingsProvider from './context/SettingsContext';
 
       [Extend Local Storage For Easy Setting and Getting](https://stackoverflow.com/a/2010994)
 
-  X Stretch goal:
-    X implement a `snack bar` alert whenever a new item is added to the todo list.
+  O Personal Stretch goal:
+    O implement a `snack bar` alert whenever a new item is added to the todo list.
       - reference: https://medium.com/swlh/snackbars-in-react-an-exercise-in-hooks-and-context-299b43fd2a2b
 */
 

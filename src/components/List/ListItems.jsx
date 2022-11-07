@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import React, { useContext } from 'react';
 import { SettingsContext } from '../../context/SettingsContext';
+import { Card, Button, Classes, Elevation, Popover, Position, H5, Intent } from '@blueprintjs/core';
+import { When, If, Then, Else } from 'react-if';
+import './List.scss'
 
 /* TODO
 
@@ -16,7 +19,8 @@ const ListItems = (props) =>
 {
   const contextValues = useContext(SettingsContext);
 
-  const paginate = () => {
+  const paginate = () =>
+  {
     // list -> total items to display
 
     // return a sub-array of the main array -> from currentIndex (in state) PLUS the value of pagination(from context)
@@ -25,19 +29,83 @@ const ListItems = (props) =>
 
   return (
     <>
-      {
-        paginate().map(item => (
-          <div key={ item.id }>
-            <p>{ item.text }</p>
-            <p><small>Assigned to: { item.assignee }</small></p>
-            <p><small>Difficulty: { item.difficulty }</small></p>
-            <div onClick={ () => props.toggleComplete(item.id) }>
-              Complete: { item.complete.toString() }
-            </div>
-            <hr />
-          </div>
-        ))
-      }
+
+      <When condition={ !props.list.length }>
+        <Card
+          interactive={ false }
+          elevation={ Elevation.TWO }
+          className={ `bp4-dark ` }
+        >
+          <h5 className='bp4-skeleton'>Homework</h5>
+          <p className='bp4-skeleton'>Felix</p>
+          <p className='bp4-skeleton'>Difficulty: 4</p>
+          <Button className='bp4-skeleton'>Completed</Button>
+        </Card>
+      </When>
+      <If condition={ contextValues.showCompleted }>
+        <Then>
+          {
+            paginate().map(item => (
+              <Card
+                key={ item.id }
+                interactive={ true }
+                elevation={ Elevation.TWO }
+                className={ `bp4-dark ` }
+              >
+                <h5>{ item.text }</h5>
+                <p>Assigned to: { item.assignee }</p>
+                <p>Difficulty: { item.difficulty }</p>
+                <Button onClick={ () => props.toggleComplete(item.id) }>
+                  Complete: { item.complete.toString() }
+                </Button>
+                <Popover
+                  position="auto"
+                >
+                  <Button icon='trash' />
+                  <div className="confirmationBox">
+                    <H5>Confirm deletion</H5>
+                    <p>Are you sure you want to delete this item? You won't be able to recover it.</p>
+                    <div style={ { display: "flex", justifyContent: "flex-end", marginTop: 15 } }>
+                      <Button className={ Classes.POPOVER_DISMISS } style={ { marginRight: 10 } }>
+                        Cancel
+                      </Button>
+                      <Button
+                        intent={ Intent.DANGER }
+                        className={ Classes.POPOVER_DISMISS }
+                        onClick={ () => props.deleteItem(item.id) }
+                      >
+                        Delete
+                      </Button>
+                    </div>
+                  </div>
+                </Popover>
+                <hr />
+              </Card>
+            ))
+          }
+        </Then>
+        <Else>
+          {
+            paginate().filter(item => !item.complete)
+              .map(item => (
+                <Card
+                  key={ item.id }
+                  interactive={ true }
+                  elevation={ Elevation.TWO }
+                  className={ `bp4-dark ` }
+                >
+                  <h5>{ item.text }</h5>
+                  <p>Assigned to: { item.assignee }</p>
+                  <p>Difficulty: { item.difficulty }</p>
+                  <Button onClick={ () => props.toggleComplete(item.id) }>
+                    Complete: { item.complete.toString() }
+                  </Button>
+                  <hr />
+                </Card>
+              ))
+          }
+        </Else>
+      </If>
     </>
   )
 }
