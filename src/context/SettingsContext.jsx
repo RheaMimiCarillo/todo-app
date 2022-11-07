@@ -51,7 +51,7 @@ function SettingsProvider(props)
   const updateShowCompleted = (event) =>
   {
     setShowCompleted(!showCompleted)
-    //console.log(event.target);
+    console.log('show completed: ', event.target);
   }
   const updatePagination = (event) =>
   {
@@ -78,7 +78,7 @@ function SettingsProvider(props)
   const updateLocalStorage = () =>
   {
     localStorage.setItem('settings', JSON.stringify({ pagination, showCompleted }));
-    //console.log('updated local storage: ', pagination, showCompleted);
+    console.log('updated local storage: ', pagination, showCompleted);
   }
 
   // when component mounts, load our settings from localStorage

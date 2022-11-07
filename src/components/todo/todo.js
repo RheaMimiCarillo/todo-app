@@ -21,6 +21,8 @@ const ToDo = () =>
   const [ currentIndex, setCurrentIndex ] = useState(0);
   const { handleChange, handleSubmit } = useForm(addItem, defaultValues);
 
+  const contextValues = useContext(SettingsContext);
+
   // useRef to clear input box onSubmit
   const taskNameRef = useRef(null);
   const assigneeRef = useRef(null);
@@ -60,6 +62,13 @@ const ToDo = () =>
     setIncomplete(incompleteCount);
     document.title = `To Do List: ${ incomplete }`;
   }, [ list ]);
+
+
+  // when show completed setting is changed, jump back to first page
+  useEffect(()=>
+  {
+    setCurrentIndex(0);
+  }, [contextValues.showCompleted])
 
   return (
     <>
