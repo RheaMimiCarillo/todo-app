@@ -51,18 +51,28 @@ function SettingsPage(props)
       >
         <div className={ Classes.DRAWER_BODY }>
           <FormGroup
-            helperText={ "Helper text with details..." }
-            onSubmit={console.log(e.target)}
+            //helperText={ "Helper text with details..." }
+            label='Display Settings'
+            onSubmit={ contextValues.updateSettings }
+            id='updateSettings'
           >
-            <Switch label="Hide Completed Tasks?" disabled={ false } />
+            <Switch
+              label="Hide Completed Tasks?"
+              disabled={ false }
+              onChange={ contextValues.updateShowCompleted }
+              defaultChecked={ contextValues.showCompleted }
+            />
 
-            <HTMLSelect>
-              <option selected>Tasks Per Page...</option>
+            <HTMLSelect
+              id='paginationSelect'
+              onChange={ contextValues.updatePagination }
+            >
+              <option defaultValue>Tasks Per Page...</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
               <option value="4">Four</option>
-              <option value="4">Four</option>
+              <option value="5">Five</option>
             </HTMLSelect>
           </FormGroup>
 
@@ -70,8 +80,9 @@ function SettingsPage(props)
         <div className={ Classes.DRAWER_FOOTER }>
           <Switch label="Win the Lottery?" disabled={ true } />
           <Button
+            form='updateSettings'
             type='submit'
-            onClick={ () => console.log(e.target) }
+            onClick={contextValues.updateLocalStorage}
           >
             Save Settings
           </Button>

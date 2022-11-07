@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import React, { useContext } from 'react';
 import { SettingsContext } from '../../context/SettingsContext';
 import { Card, Button, Classes, Elevation } from '@blueprintjs/core';
-import { When } from 'react-if';
+import { When, If, Then, Else } from 'react-if';
 import './List.scss'
 
 /* TODO
@@ -24,7 +24,16 @@ const ListItems = (props) =>
     // list -> total items to display
 
     // return a sub-array of the main array -> from currentIndex (in state) PLUS the value of pagination(from context)
+    console.log(props.list);
     return props.list.slice(props.currentIndex, props.currentIndex + contextValues.pagination);
+  }
+
+  function filterCompleted()
+  {
+    console.log('items before filtering complete: ', props.list);
+    const incompleteItems = props.list.filter(item => !item.complete);
+    console.log('incomplete items: ', incompleteItems);
+    setList(incompleteItems);
   }
 
   return (
@@ -41,24 +50,49 @@ const ListItems = (props) =>
           <Button className='bp4-skeleton'>Completed</Button>
         </Card>
       </When>
-      {
-        paginate().map(item => (
-          <Card
-            key={ item.id }
-            interactive={ true }
-            elevation={ Elevation.TWO }
-            className={ `bp4-dark ` }
-          >
-            <h5>{ item.text }</h5>
-            <p>Assigned to: { item.assignee }</p>
-            <p>Difficulty: { item.difficulty }</p>
-            <Button onClick={ () => props.toggleComplete(item.id) }>
-              Complete: { item.complete.toString() }
-            </Button>
-            <hr />
-          </Card>
-        ))
-      }
+      <If condition={ contextValues.showCompleted }>
+        <Then>
+          {
+            paginate().map(item => (
+              <Card
+                key={ item.id }
+                interactive={ true }
+                elevation={ Elevation.TWO }
+                className={ `bp4-dark ` }
+              >
+                <h5>{ item.text }</h5>
+                <p>Assigned to: { item.assignee }</p>
+                <p>Difficulty: { item.difficulty }</p>
+                <Button onClick={ () => props.toggleComplete(item.id) }>
+                  Complete: { item.complete.toString() }
+                </Button>
+                <hr />
+              </Card>
+            ))
+          }
+        </Then>
+        <Else>
+          {
+            paginate().filter(item => !item.complete)
+              .map(item => (
+                <Card
+                  key={ item.id }
+                  interactive={ true }
+                  elevation={ Elevation.TWO }
+                  className={ `bp4-dark ` }
+                >
+                  <h5>{ item.text }</h5>
+                  <p>Assigned to: { item.assignee }</p>
+                  <p>Difficulty: { item.difficulty }</p>
+                  <Button onClick={ () => props.toggleComplete(item.id) }>
+                    Complete: { item.complete.toString() }
+                  </Button>
+                  <hr />
+                </Card>
+              ))
+          }
+        </Else>
+      </If>
     </>
   )
 }
