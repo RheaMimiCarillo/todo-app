@@ -48,11 +48,11 @@ function SettingsPage(props)
         icon="info-sign"
         title="Settings"
         className={ `Classes.MINIMAL bp4-dark ${ props.isOpen ? 'drawerOpen' : 'drawerClosed' }` }
-        elevation={ Elevation.ONE }
       >
         <div className={ Classes.DRAWER_BODY }>
           <FormGroup
             helperText={ "Helper text with details..." }
+            onSubmit={console.log(e.target)}
           >
             <Switch label="Hide Completed Tasks?" disabled={ false } />
 
@@ -70,7 +70,8 @@ function SettingsPage(props)
         <div className={ Classes.DRAWER_FOOTER }>
           <Switch label="Win the Lottery?" disabled={ true } />
           <Button
-            onClick={ () => console.log('settings form submitted; go update context') }
+            type='submit'
+            onClick={ () => console.log(e.target) }
           >
             Save Settings
           </Button>

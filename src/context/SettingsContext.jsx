@@ -48,14 +48,14 @@ function SettingsProvider(props)
   let [ showCompleted, setHide ] = useState(false);
   let [ error, setError ] = useState(null);
 
-  const updatePagination = (value) =>
+  const updateSettings = (event) =>
   {
     // we know that value is an integer if truthy
-    if (value > 0 && parseInt(value))
+    if (event.target.pagination > 0 && parseInt(event.target.pagination))
     {
-      setPagination(value);
+      setPagination(event.target.pagination);
       setError(null); // reset error state
-      localStorage.setItem('settings', JSON.stringify({ pagination, sortBy, showCompleted }));
+      localStorage.setItem('settings', JSON.stringify({ pagination, showCompleted }));
     }
     else
     {
@@ -63,11 +63,17 @@ function SettingsProvider(props)
     }
   }
 
+  const updateSorting = (value) =>
+  {
+    //
+  }
+
   // when component mounts, load our settings from localStorage
   useEffect(() =>
   {
     let savedSettings = localStorage.getItem('settings');
     // set them back into context values.
+    console.log('settings object loaded from local storage: ', savedSettings);
   }, []);
 
 
