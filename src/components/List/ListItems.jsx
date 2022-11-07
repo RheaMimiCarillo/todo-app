@@ -29,7 +29,6 @@ const ListItems = (props) =>
 
   return (
     <>
-
       <When condition={ !props.list.length }>
         <Card
           interactive={ false }
@@ -56,12 +55,20 @@ const ListItems = (props) =>
                 <p>Assigned to: { item.assignee }</p>
                 <p>Difficulty: { item.difficulty }</p>
                 <Button onClick={ () => props.toggleComplete(item.id) }>
-                  Complete: { item.complete.toString() }
+                  <If condition={item.complete}>
+                    <Then>
+                      Task Completed :)
+                    </Then>
+                    <Else>
+                      Mark Completed?
+                    </Else>
+                  </If>
+                  {/* Complete: { item.complete.toString() } */}
                 </Button>
                 <Popover
                   position="auto"
                 >
-                  <Button icon='trash' />
+                  <Button icon='trash' style={ {marginLeft: 15}}/>
                   <div className="confirmationBox">
                     <H5>Confirm deletion</H5>
                     <p>Are you sure you want to delete this item? You won't be able to recover it.</p>

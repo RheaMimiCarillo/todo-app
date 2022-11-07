@@ -49,7 +49,7 @@ function SettingsPage(props)
             id='updateSettings'
           >
             <Switch
-              label="Hide Completed Tasks?"
+              label="Show Completed Tasks"
               disabled={ false }
               onChange={ contextValues.updateShowCompleted }
               defaultChecked={ contextValues.showCompleted }
