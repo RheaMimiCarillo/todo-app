@@ -15,12 +15,6 @@ import './List.scss';
 
 /* TODO
 
-O Consume and utilize Context values throughout your components:
-Show a maximum of a certain number of items per screen in the <List /> component.
-  O Provide “next” and “previous” links to let the users navigate a long list of items.
-  O Hide or show completed items in the list.
-    X Optional: Sort the items based on any of the keys (i.e. difficulty).
-
 */
 
 const List = (props) =>

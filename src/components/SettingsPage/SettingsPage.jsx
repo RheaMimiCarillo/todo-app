@@ -18,12 +18,7 @@ import { useContext } from 'react';
 import { SettingsContext } from '../../context/SettingsContext';
 
 /* TODO
-X Provide the users with a form where they can change the values for those settings
-    X This should be given in the form of a new component, perhaps linked to from the main navigation
-    - Hint: Use Browser Router to create the page/route/component for this
 
-  X Save the users choices in Local Storage
-    X Retrieve their preferences from Local Storage and apply them to the application on startup
 */
 
 function SettingsPage(props)
