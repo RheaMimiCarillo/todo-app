@@ -20,8 +20,6 @@ const ToDo = () =>
   const [ incomplete, setIncomplete ] = useState([]);
   const [ currentIndex, setCurrentIndex ] = useState(0);
   const { handleChange, handleSubmit } = useForm(addItem, defaultValues);
-  const contextValues = useContext(SettingsContext);
-  const [ getInput, setGetInput ] = useState(contextValues.pagination);
 
   // useRef to clear input box onSubmit
   const taskNameRef = useRef(null);
@@ -66,12 +64,12 @@ const ToDo = () =>
   return (
     <>
       <SnackBar
-        message={'sup'}
-        isCloseButtonShown={true}
-        timeout={5000}
-        list={list}
+        message={ 'sup' }
+        isCloseButtonShown={ true }
+        timeout={ 5000 }
+        list={ list }
       />
-      {/* <SettingsPage/> */}
+      {/* <SettingsPage/> */ }
       <Header incomplete={ incomplete } />
 
       <form onSubmit={ handleSubmit }>
@@ -85,7 +83,7 @@ const ToDo = () =>
             name="text"
             type="text"
             placeholder="Item Details"
-            ref={taskNameRef}
+            ref={ taskNameRef }
             data-testid="itemName"
           />
         </label>
@@ -97,7 +95,7 @@ const ToDo = () =>
             name="assignee"
             type="text"
             placeholder="Assignee Name"
-            ref={assigneeRef}
+            ref={ assigneeRef }
             data-testid="assignee"
           />
         </label>
@@ -124,6 +122,7 @@ const ToDo = () =>
         toggleComplete={ toggleComplete }
         currentIndex={ currentIndex }
         setCurrentIndex={ setCurrentIndex }
+        deleteItem={ deleteItem }
       />
     </>
   );

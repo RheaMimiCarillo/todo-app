@@ -33,6 +33,7 @@ const List = (props) =>
           list={ props.list }
           toggleComplete={ props.toggleComplete }
           currentIndex={ props.currentIndex }
+          deleteItem={ props.deleteItem }
         />
         {/* if current index 0, don't show */ }
         <When condition={ !(props.currentIndex === 0) }>

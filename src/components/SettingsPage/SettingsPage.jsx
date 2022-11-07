@@ -4,21 +4,12 @@ import
 {
   FormGroup,
   InputGroup,
-  Intent,
   Switch,
   Button,
   Classes,
-  Divider,
   Drawer,
-  Elevation,
   DrawerSize,
   HTMLSelect,
-  Label,
-  Menu,
-  MenuItem,
-  OptionProps,
-  Position,
-  Overlay,
 } from "@blueprintjs/core";
 import { useState } from 'react';
 
@@ -45,9 +36,10 @@ function SettingsPage(props)
       <Drawer
         isOpen={ props.isOpen }
         onClose={ handleClose }
-        icon="info-sign"
+        icon="cog"
         title="Settings"
         className={ `Classes.MINIMAL bp4-dark ${ props.isOpen ? 'drawerOpen' : 'drawerClosed' }` }
+        size={DrawerSize.SMALL}
       >
         <div className={ Classes.DRAWER_BODY }>
           <FormGroup
@@ -73,6 +65,20 @@ function SettingsPage(props)
               <option value="3">Three</option>
               <option value="4">Four</option>
               <option value="5">Five</option>
+            </HTMLSelect>
+
+            <HTMLSelect
+              id='paginationSelect'
+              onChange={ contextValues.updatePagination }
+              disabled={true}
+            >
+              <option defaultValue>Sort items by...</option>
+              <option value="abc">ABC ↑</option>
+              <option value="zyx">ABC ↓</option>
+              <option value="hardest">Hard → Easy</option>
+              <option value="easiest">Easy ← Hard</option>
+              <option value="assignee">assignee</option>
+
             </HTMLSelect>
           </FormGroup>
 
