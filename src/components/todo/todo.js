@@ -7,8 +7,6 @@ import { SettingsContext } from '../../context/SettingsContext';
 import Header from '../Header/header';
 import List from '../List/List';
 import SnackBar from '../SnackBar/SnackBar.jsx';
-
-
 import './Todo.scss';
 
 const ToDo = () =>
@@ -82,9 +80,8 @@ const ToDo = () =>
       <Header incomplete={ incomplete } />
 
       <form onSubmit={ handleSubmit }>
-
         <h2>Add To Do Item</h2>
-
+        
         <label>
           <span>To Do Item</span>
           <input

@@ -62,8 +62,8 @@ function SettingsPage(props)
             </HTMLSelect>
 
             <HTMLSelect
-              id='paginationSelect'
-              onChange={ contextValues.updatePagination }
+              id='sortSelect'
+              onChange={ contextValues.updateSorting }
               disabled={true}
             >
               <option defaultValue>Sort items by...</option>
@@ -72,11 +72,10 @@ function SettingsPage(props)
               <option value="hardest">Hard → Easy</option>
               <option value="easiest">Easy ← Hard</option>
               <option value="assignee">assignee</option>
-
             </HTMLSelect>
           </FormGroup>
-
         </div>
+
         <div className={ Classes.DRAWER_FOOTER }>
           <Switch label="Win the Lottery?" disabled={ true } />
           <Button
@@ -90,7 +89,6 @@ function SettingsPage(props)
       </Drawer>
     </>
   )
-
 }
 
 export default SettingsPage;

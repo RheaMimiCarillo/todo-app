@@ -4,8 +4,6 @@ Todo List app with RBAC and Auth
 
 [Live Todo-App](https://rhea-todo-app.netlify.app/)
 
-
-
 ## Testing
 
 My test suite covers the following test cases:
