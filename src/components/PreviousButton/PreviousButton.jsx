@@ -4,7 +4,6 @@ import { SettingsContext } from '../../context/SettingsContext';
 
 import './PreviousButton.scss';
 
-
 export default function PreviousButton(props)
 {
   const contextValues = useContext(SettingsContext);

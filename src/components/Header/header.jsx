@@ -14,6 +14,11 @@ import { useState } from 'react';
 import './Header.scss';
 import SettingsPage from '../SettingsPage/SettingsPage.jsx';
 
+/* TODO:
+  X Add login form to header
+    X OR get cool login page from midterm project and insert into this one
+*/
+
 const Header = (props) =>
 {
   const [ isOpen, setIsOpen ] = useState(false);

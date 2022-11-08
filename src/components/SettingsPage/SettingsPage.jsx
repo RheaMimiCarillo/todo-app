@@ -11,19 +11,13 @@ import
   DrawerSize,
   HTMLSelect,
 } from "@blueprintjs/core";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
-import { useContext } from 'react';
 // note how this is imported with deconstruction
 import { SettingsContext } from '../../context/SettingsContext';
 
 /* TODO
-X Provide the users with a form where they can change the values for those settings
-    X This should be given in the form of a new component, perhaps linked to from the main navigation
-    - Hint: Use Browser Router to create the page/route/component for this
 
-  X Save the users choices in Local Storage
-    X Retrieve their preferences from Local Storage and apply them to the application on startup
 */
 
 function SettingsPage(props)
@@ -68,8 +62,8 @@ function SettingsPage(props)
             </HTMLSelect>
 
             <HTMLSelect
-              id='paginationSelect'
-              onChange={ contextValues.updatePagination }
+              id='sortSelect'
+              onChange={ contextValues.updateSorting }
               disabled={true}
             >
               <option defaultValue>Sort items by...</option>
@@ -78,11 +72,10 @@ function SettingsPage(props)
               <option value="hardest">Hard → Easy</option>
               <option value="easiest">Easy ← Hard</option>
               <option value="assignee">assignee</option>
-
             </HTMLSelect>
           </FormGroup>
-
         </div>
+
         <div className={ Classes.DRAWER_FOOTER }>
           <Switch label="Win the Lottery?" disabled={ true } />
           <Button
@@ -96,7 +89,6 @@ function SettingsPage(props)
       </Drawer>
     </>
   )
-
 }
 
 export default SettingsPage;
