@@ -1,9 +1,8 @@
-# LAB - Todo-App - Context API
+# Todo-App - Context API
 
-Todo List app with RBAC and Auth
+Single-page, React-based todo list app with context API, customizable pagination, snackbar popups, & more.
 
 [Live Todo-App](https://rhea-todo-app.netlify.app/)
-
 
 
 ## Testing
