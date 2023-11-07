@@ -1,6 +1,6 @@
 # Todo-App - Context API
 
-Single-page, React-based todo list app with context API, customizable pagination, snackbar popups, & more.
+React-based to-do app with customizable pagination, snackbar-notifications, react hooks, & more.
 
 [Live Todo-App](https://rhea-todo-app.netlify.app/)
 
